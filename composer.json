@@ -22,10 +22,7 @@
 			"init.php"
 		],
 		"psr-4" : {
-			"Bolt\\Extension\\Gawain\\Clippy\\" : [
-				"",
-				"src/"
-			]
+			"Bolt\\Extension\\Gawain\\Clippy\\" : ""
 		}
 	}
 }
