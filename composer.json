@@ -3,10 +3,16 @@
 	"description" : "Add Clippy or his friends to Bolt for instant nostalgia",
 	"type" : "bolt-extension",
 	"keywords" : [
-		"clippy",
-		"merlin",
-		"rover",
-		"links"
+		"Bonzi",
+		"Clippy",
+		"F1",
+		"Genie",
+		"Genius",
+		"Links",
+		"Merlin",
+		"Peedy",
+		"Rocky",
+		"Rover"
 	],
 	"require" : {
 		"bolt/bolt" : ">=2.0.0,<3.0.0"
@@ -25,17 +31,17 @@
 			"Bolt\\Extension\\Gawain\\Clippy\\" : ""
 		}
 	},
-    "extra": {
-        "bolt-screenshots": [
-            "screenshot-bonzi.png",
-            "screenshot-clippy.png",
-            "screenshot-f1.png",
-            "screenshot-genie.png",
-            "screenshot-genius.png",
-            "screenshot-links.png",
-            "screenshot-peedy.png",
-            "screenshot-rocky.png",
-            "screenshot-rover.png"
-        ]
-    }
+	"extra" : {
+		"bolt-screenshots" : [
+			"screenshot-bonzi.png",
+			"screenshot-clippy.png",
+			"screenshot-f1.png",
+			"screenshot-genie.png",
+			"screenshot-genius.png",
+			"screenshot-links.png",
+			"screenshot-peedy.png",
+			"screenshot-rocky.png",
+			"screenshot-rover.png"
+		]
+	}
 }
