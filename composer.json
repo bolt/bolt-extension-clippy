@@ -24,5 +24,18 @@
 		"psr-4" : {
 			"Bolt\\Extension\\Gawain\\Clippy\\" : ""
 		}
-	}
+	},
+    "extra": {
+        "bolt-screenshots": [
+            "screenshot-bonzi.png",
+            "screenshot-clippy.png",
+            "screenshot-f1.png",
+            "screenshot-genie.png",
+            "screenshot-genius.png",
+            "screenshot-links.png",
+            "screenshot-peedy.png",
+            "screenshot-rocky.png",
+            "screenshot-rover.png"
+        ]
+    }
 }
