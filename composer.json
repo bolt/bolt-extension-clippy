@@ -32,6 +32,7 @@
 		}
 	},
 	"extra" : {
+		"bolt-assets" : "lib/clippy.js",
 		"bolt-screenshots" : [
 			"screenshot-bonzi.png",
 			"screenshot-clippy.png",
