@@ -16,26 +16,28 @@ class Extension extends \Bolt\BaseExtension
     public function __construct(Application $app)
     {
         parent::__construct($app);
-        if ($this->app['config']->getWhichEnd()=='backend') {
+        if ($this->app['config']->getWhichEnd() == 'backend') {
             $this->app['htmlsnippets'] = true;
         }
     }
 
     public function initialize()
     {
-        $this->addCss('lib/clippy.js/build/clippy.css');
-        $this->addJavascript('lib/clippy.js/build/clippy.min.js', true);
+        if ($this->app['config']->getWhichEnd() == 'backend') {
+            $this->addCss('lib/clippy.js/build/clippy.css');
+            $this->addJavascript('lib/clippy.js/build/clippy.min.js', true);
 
-        // Add path
-        $this->app['twig.loader.filesystem']->addPath(__DIR__ . "/assets");
+            // Add path
+            $this->app['twig.loader.filesystem']->addPath(__DIR__ . "/assets");
 
-        // Render the JS
-        $html = $this->app['render']->render('clippy.twig', array(
-            'agent' => $this->config['agent']
-        ));
+            // Render the JS
+            $html = $this->app['render']->render('clippy.twig', array(
+                'agent' => $this->config['agent']
+            ));
 
-        // Add the snippets
-        $this->addSnippet(SnippetLocation::END_OF_HTML, $html);
+            // Add the snippets
+            $this->addSnippet(SnippetLocation::END_OF_HTML, $html);
+        }
     }
 
     /**
