@@ -24,8 +24,8 @@ class Extension extends \Bolt\BaseExtension
     public function initialize()
     {
         if ($this->app['config']->getWhichEnd() == 'backend') {
-            $this->addCss('lib/clippy.js/build/clippy.css');
-            $this->addJavascript('lib/clippy.js/build/clippy.min.js', true);
+            $this->addCss('lib/clippy.js/clippy.css');
+            $this->addJavascript('lib/clippy.js/clippy.min.js', true);
 
             // Add path
             $this->app['twig.loader.filesystem']->addPath(__DIR__ . "/assets");
