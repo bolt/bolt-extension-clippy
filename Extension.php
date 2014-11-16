@@ -33,7 +33,7 @@ class Extension extends \Bolt\BaseExtension
             // Render the JS
             $html = $this->app['render']->render('clippy.twig', array(
                 'agent' => $this->config['agent'],
-                'messages' => $this->app['session']->getFlashBag()->get('error')
+                'messages' => $this->app['session']->getFlashBag()->peek('error')
             ));
 
             // Add the snippets
