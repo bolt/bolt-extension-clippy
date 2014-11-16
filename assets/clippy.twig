@@ -2,6 +2,13 @@
     clippy.load('{{ agent }}', function(agent){
         agent.show();
 
-        agent.animate();
+        {% if messages is empty %}
+            agent.animate();
+        {% else %}
+            agent.speak('It appears you have one or more errors...');
+            {% for message in messages %}
+            agent.speak('{{ message }}');
+            {% endfor %}
+        {% endif %}
     });
 </script>
