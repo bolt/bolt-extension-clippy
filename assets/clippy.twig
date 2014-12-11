@@ -7,7 +7,7 @@
         {% else %}
             agent.speak('It appears you have one or more errors...');
             {% for message in messages %}
-            agent.speak('{{ message }}');
+            agent.speak('{{ message|striptags }}');
             {% endfor %}
         {% endif %}
     });
