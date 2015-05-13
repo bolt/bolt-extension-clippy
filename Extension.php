@@ -3,9 +3,12 @@
 namespace Bolt\Extension\Gawain\Clippy;
 
 use Bolt\Application;
+use Bolt\BaseExtension;
 use Bolt\Extensions\Snippets\Location as SnippetLocation;
+use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
 
-class Extension extends \Bolt\BaseExtension
+class Extension extends BaseExtension
 {
 
     public function getName()
@@ -35,6 +38,11 @@ class Extension extends \Bolt\BaseExtension
                 'agent' => $this->config['agent'],
                 'messages' => $this->app['session']->getFlashBag()->peek('error')
             ));
+
+            // Enable snippets to be loaded in the backend
+            $this->app->before(function (Request $request, Application $app) {
+                $request->attributes->set('allow_snippets', true);
+            });
 
             // Add the snippets
             $this->addSnippet(SnippetLocation::END_OF_HTML, $html);
