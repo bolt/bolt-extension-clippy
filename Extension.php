@@ -24,21 +24,26 @@ class Extension extends BaseExtension
     public function initialize()
     {
         if ($this->app['config']->getWhichEnd() === 'backend') {
-            $this->addCss('lib/clippy.js/clippy.css');
-            $this->addJavascript('lib/clippy.js/clippy.min.js', true);
-
-            // Add path
-            $this->app['twig.loader.filesystem']->addPath(__DIR__ . '/assets');
-
-            // Render the JS
-            $html = $this->app['render']->render('clippy.twig', array(
-                'agent'    => $this->config['agent'],
-                'messages' => $this->app['session']->getFlashBag()->peek('error')
-            ));
-
-            // Add the snippets
-            $this->addSnippet(SnippetLocation::END_OF_HTML, $html);
+            $this->app->after(array($this, 'after'));
         }
+    }
+
+    public function after()
+    {
+        $this->addCss('lib/clippy.js/clippy.css');
+        $this->addJavascript('lib/clippy.js/clippy.min.js', true);
+
+        // Add path
+        $this->app['twig.loader.filesystem']->addPath(__DIR__ . '/assets');
+
+        // Render the JS
+        $html = $this->app['render']->render('clippy.twig', array(
+            'agent'    => $this->config['agent'],
+            'messages' => $this->app['session']->getFlashBag()->peek('error')
+        ));
+
+        // Add the snippets
+        $this->addSnippet(SnippetLocation::END_OF_HTML, $html);
     }
 
     /**
