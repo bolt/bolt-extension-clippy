@@ -1,5 +1,8 @@
 # Changelog for Clippy
 
+* 2.1.0 (2015-09-07)
+ * Bump requirement to Bolt v2.2.0
+
 * 2.0.1 (2015-09-02)
  * Added: Icon (credit @Mikescops)
  * Moved logic to middleware
