@@ -31,7 +31,7 @@ class Extension extends BaseExtension
     public function after()
     {
         $this->addCss('lib/clippy.js/clippy.css');
-        $this->addJavascript('lib/clippy.js/clippy.min.js', true);
+        $this->addJavascript('lib/clippy.js/clippy.min.js', array('late' => true));
 
         // Add path
         $this->app['twig.loader.filesystem']->addPath(__DIR__ . '/assets');
