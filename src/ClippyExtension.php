@@ -6,7 +6,7 @@ use Bolt\Application;
 use Bolt\BaseExtension;
 use Bolt\Extensions\Snippets\Location as SnippetLocation;
 
-class Extension extends BaseExtension
+class ClippyExtension extends BaseExtension
 {
     public function getName()
     {
