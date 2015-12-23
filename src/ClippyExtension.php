@@ -2,48 +2,47 @@
 
 namespace Bolt\Extension\Gawain\Clippy;
 
-use Bolt\Application;
-use Bolt\BaseExtension;
-use Bolt\Extensions\Snippets\Location as SnippetLocation;
+use Bolt\Asset\File\JavaScript;
+use Bolt\Asset\File\Stylesheet;
+use Bolt\Asset\Snippet\Snippet;
+use Bolt\Controller\Zone;
+use Bolt\Extension\SimpleExtension;
+use Bolt\Asset\Target;
 
-class ClippyExtension extends BaseExtension
+/**
+ * Clippy extension for Bolt… 'cause you know you miss the little guy!
+ *
+ * @author Gawain Lynch <gawain.lynch@gmail.com>
+ */
+class ClippyExtension extends SimpleExtension
 {
-    public function getName()
+    /**
+     * {@inheritdoc}
+     */
+    protected function registerAssets()
     {
-        return 'Clippy';
+        return [
+            (new Stylesheet('clippy.js/clippy.css'))->setLate(false)->setZone(Zone::BACKEND),
+            (new JavaScript('clippy.js/clippy.min.js'))->setLate(true)->setZone(Zone::BACKEND),
+            (new Snippet())->setCallback([$this, 'clippy'])->setLocation(Target::END_OF_HTML)->setZone(Zone::BACKEND),
+        ];
     }
 
-    public function __construct(Application $app)
+    /**
+     * Render the JavaScript that loads Clippy.
+     *
+     * @return string
+     */
+    public function clippy()
     {
-        parent::__construct($app);
-        if ($this->app['config']->getWhichEnd() === 'backend') {
-            $this->app['htmlsnippets'] = true;
-        }
-    }
-
-    public function initialize()
-    {
-        if ($this->app['config']->getWhichEnd() === 'backend') {
-            $this->app->after(array($this, 'after'));
-        }
-    }
-
-    public function after()
-    {
-        $this->addCss('lib/clippy.js/clippy.css');
-        $this->addJavascript('lib/clippy.js/clippy.min.js', array('late' => true));
-
-        // Add path
-        $this->app['twig.loader.filesystem']->addPath(__DIR__ . '/assets');
+        $app = $this->getContainer();
+        $config = $this->getConfig();
 
         // Render the JS
-        $html = $this->app['render']->render('clippy.twig', array(
-            'agent'    => $this->config['agent'],
-            'messages' => $this->app['session']->getFlashBag()->peek('error')
+        return $this->renderTemplate('clippy.twig', array(
+            'agent'    => $config['agent'],
+            'messages' => $app['session']->getFlashBag()->peek('error')
         ));
-
-        // Add the snippets
-        $this->addSnippet(SnippetLocation::END_OF_HTML, $html);
     }
 
     /**
