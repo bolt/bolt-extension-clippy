@@ -1,49 +1,51 @@
 {
-	"name" : "gawain/clippy",
-	"description" : "Add Clippy or his friends to Bolt for instant nostalgia",
-	"type" : "bolt-extension",
-	"keywords" : [
-		"Bonzi",
-		"Clippy",
-		"F1",
-		"Genie",
-		"Genius",
-		"Links",
-		"Merlin",
-		"Peedy",
-		"Rocky",
-		"Rover"
-	],
-	"require" : {
-		"bolt/bolt" : ">=2.2.0,<3.0.0"
-	},
-	"license" : "MIT",
-	"authors" : [{
-			"name" : "Gawain Lynch",
-			"email" : "gawain.lynch@gmail.com"
-		}
-	],
-	"autoload" : {
-		"files" : [
-			"init.php"
-		],
-		"psr-4" : {
-			"Bolt\\Extension\\Gawain\\Clippy\\" : ""
-		}
-	},
-	"extra" : {
-		"bolt-assets" : "lib/clippy.js",
-		"bolt-icon" : "assets/icon-clippy.png",
-		"bolt-screenshots" : [
-			"screenshot-bonzi.png",
-			"screenshot-clippy.png",
-			"screenshot-f1.png",
-			"screenshot-genie.png",
-			"screenshot-genius.png",
-			"screenshot-links.png",
-			"screenshot-peedy.png",
-			"screenshot-rocky.png",
-			"screenshot-rover.png"
-		]
-	}
+    "name": "gawain/clippy",
+    "description": "Add Clippy or his friends to Bolt for instant nostalgia",
+    "type": "bolt-extension",
+    "keywords": [
+        "Bonzi",
+        "Clippy",
+        "F1",
+        "Genie",
+        "Genius",
+        "Links",
+        "Merlin",
+        "Peedy",
+        "Rocky",
+        "Rover"
+    ],
+    "require": {
+        "bolt/bolt": "^3.0"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Gawain Lynch",
+            "email": "gawain.lynch@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Bolt\\Extension\\Gawain\\Clippy\\": "src"
+        }
+    },
+    "extra": {
+        "bolt-assets": "web",
+        "bolt-class": "Bolt\\Extension\\Gawain\\Clippy\\ClippyExtension",
+        "bolt-icon": "icon-clippy.png",
+        "bolt-screenshots": [
+            "screenshot-bonzi.png",
+            "screenshot-clippy.png",
+            "screenshot-f1.png",
+            "screenshot-genie.png",
+            "screenshot-genius.png",
+            "screenshot-links.png",
+            "screenshot-peedy.png",
+            "screenshot-rocky.png",
+            "screenshot-rover.png"
+        ],
+        "branch-alias": {
+            "dev-master": "3.0.x-dev"
+        }
+    }
 }
