@@ -1,5 +1,9 @@
 # Changelog for Clippy
 
+* 2.1.1 (2016-01-02)
+  * Fixed: Escape messages properly
+  * Added: Fire an animation event on at a configurable frequency
+
 * 2.1.0 (2015-09-07)
  * Bump requirement to Bolt v2.2.0
 
