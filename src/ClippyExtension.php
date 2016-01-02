@@ -41,6 +41,7 @@ class ClippyExtension extends SimpleExtension
         // Render the JS
         return $this->renderTemplate('clippy.twig', array(
             'agent'    => $config['agent'],
+            'timer'    => $config['timer'],
             'messages' => $app['session']->getFlashBag()->peek('error')
         ));
     }
@@ -52,8 +53,9 @@ class ClippyExtension extends SimpleExtension
      */
     protected function getDefaultConfig()
     {
-        return array(
-            'agent' => 'Clippy'
-        );
+        return [
+            'agent' => 'Clippy',
+            'timer' => 30
+        ];
     }
 }

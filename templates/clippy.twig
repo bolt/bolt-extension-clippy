@@ -1,4 +1,6 @@
 <script type="text/javascript">
+    var clippyAgent;
+
     clippy.load('{{ agent }}', function(agent){
         agent.show();
 
@@ -10,5 +12,13 @@
             agent.speak('{{ message|striptags|escape('js') }}');
             {% endfor %}
         {% endif %}
+        clippyAgent = agent;
     });
+
+    var clippyEvent = setInterval(
+            function() {
+                clippyAgent.animate();
+            },
+            {{ timer }}
+    );
 </script>
