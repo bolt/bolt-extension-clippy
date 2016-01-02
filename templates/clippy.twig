@@ -7,7 +7,7 @@
         {% else %}
             agent.speak('It appears you have one or more errors...');
             {% for message in messages %}
-            agent.speak('{{ message|striptags }}');
+            agent.speak('{{ message|striptags|escape('js') }}');
             {% endfor %}
         {% endif %}
     });
