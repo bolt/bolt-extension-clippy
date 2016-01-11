@@ -5,9 +5,9 @@ namespace Bolt\Extension\Gawain\Clippy;
 use Bolt\Asset\File\JavaScript;
 use Bolt\Asset\File\Stylesheet;
 use Bolt\Asset\Snippet\Snippet;
+use Bolt\Asset\Target;
 use Bolt\Controller\Zone;
 use Bolt\Extension\SimpleExtension;
-use Bolt\Asset\Target;
 
 /**
  * Clippy extension for Bolt… 'cause you know you miss the little guy!
@@ -39,11 +39,11 @@ class ClippyExtension extends SimpleExtension
         $config = $this->getConfig();
 
         // Render the JS
-        return $this->renderTemplate('clippy.twig', array(
+        return $this->renderTemplate('clippy.twig', [
             'agent'    => $config['agent'],
             'timer'    => $config['timer'],
-            'messages' => $app['session']->getFlashBag()->peek('error')
-        ));
+            'messages' => $app['session']->getFlashBag()->peek('error'),
+        ]);
     }
 
     /**
@@ -55,7 +55,7 @@ class ClippyExtension extends SimpleExtension
     {
         return [
             'agent' => 'Clippy',
-            'timer' => 30
+            'timer' => 30,
         ];
     }
 }
