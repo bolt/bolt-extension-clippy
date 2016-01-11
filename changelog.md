@@ -1,5 +1,8 @@
 # Changelog for Clippy
 
+* 3.0.0 (2016-01-11)
+  * Release for Bolt v3
+
 * 2.1.1 (2016-01-02)
   * Fixed: Escape messages properly
   * Added: Fire an animation event on at a configurable frequency
