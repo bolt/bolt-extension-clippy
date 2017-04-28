@@ -21,9 +21,11 @@ class ClippyExtension extends SimpleExtension
      */
     protected function registerAssets()
     {
+        $webDir = $this->getWebDirectory()->getPath();
+
         return [
-            (new Stylesheet('clippy.js/clippy.css'))->setLate(false)->setZone(Zone::BACKEND),
-            (new JavaScript('clippy.js/clippy.min.js'))->setLate(true)->setZone(Zone::BACKEND),
+            (new Stylesheet($webDir . '/clippy.js/clippy.css'))->setLate(false)->setZone(Zone::BACKEND),
+            (new JavaScript($webDir . '/clippy.js/clippy.min.js'))->setLate(true)->setZone(Zone::BACKEND),
             (new Snippet())->setCallback([$this, 'clippy'])->setLocation(Target::END_OF_HTML)->setZone(Zone::BACKEND),
         ];
     }
