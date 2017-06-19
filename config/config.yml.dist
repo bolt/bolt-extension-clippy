@@ -1,5 +1,5 @@
 # Clippy, Bonzi, F1, Genie, Genius, Links, Merlin, Peedy, Rocky or Rover
-agent: Clippy
+#agent: Clippy
 
-# Frequency (in seconds) to activate an annimation
-timer: 30
+# Frequency (in seconds) to activate a random animation of the agent
+#timer: 120

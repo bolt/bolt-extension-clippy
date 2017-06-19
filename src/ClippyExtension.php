@@ -21,12 +21,10 @@ class ClippyExtension extends SimpleExtension
      */
     protected function registerAssets()
     {
-        $webDir = $this->getWebDirectory()->getPath();
-
         return [
-            (new Stylesheet($webDir . '/clippy.js/clippy.css'))->setLate(false)->setZone(Zone::BACKEND),
-            (new JavaScript($webDir . '/clippy.js/clippy.min.js'))->setLate(true)->setZone(Zone::BACKEND),
-            (new Snippet())->setCallback([$this, 'clippy'])->setLocation(Target::END_OF_HTML)->setZone(Zone::BACKEND),
+            (new Stylesheet('clippy.js/clippy.css'))->setLate(false)->setZone(Zone::BACKEND),
+            (new JavaScript('clippy.js/clippy.min.js'))->setLate(true)->setZone(Zone::BACKEND),
+            (new Snippet())->setCallback([$this, 'clippy'])->setLocation(Target::END_OF_BODY)->setZone(Zone::BACKEND),
         ];
     }
 
@@ -43,7 +41,7 @@ class ClippyExtension extends SimpleExtension
         // Render the JS
         return $this->renderTemplate('clippy.twig', [
             'agent'    => $config['agent'],
-            'timer'    => $config['timer'],
+            'timer'    => $config['timer'] * 1000,
             'messages' => $app['session']->getFlashBag()->peek('error'),
         ]);
     }
@@ -57,7 +55,7 @@ class ClippyExtension extends SimpleExtension
     {
         return [
             'agent' => 'Clippy',
-            'timer' => 30,
+            'timer' => 120,
         ];
     }
 }

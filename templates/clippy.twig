@@ -3,19 +3,18 @@
 
     clippy.load('{{ agent }}', function(agent){
         agent.show();
-
-        {% if messages is empty %}
+        {% if messages is empty -%}
             agent.animate();
-        {% else %}
+        {% else -%}
             agent.speak('It appears you have one or more errors...');
             {% for message in messages %}
             agent.speak('{{ message|striptags|escape('js') }}');
             {% endfor %}
-        {% endif %}
+        {%- endif -%}
         clippyAgent = agent;
     });
 
-    var clippyEvent = setInterval(
+    window.setInterval(
             function() {
                 clippyAgent.animate();
             },
