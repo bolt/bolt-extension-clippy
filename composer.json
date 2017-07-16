@@ -15,7 +15,7 @@
         "Rover"
     ],
     "require": {
-        "bolt/bolt": "^3.0"
+        "bolt/bolt": "^4.0"
     },
     "license": "MIT",
     "authors": [
@@ -45,7 +45,7 @@
             "screenshots/rover.png"
         ],
         "branch-alias": {
-            "dev-master": "3.0.x-dev"
+            "dev-master": "4.0.x-dev"
         }
     }
 }
