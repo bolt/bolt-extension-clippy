@@ -34,15 +34,15 @@
         "bolt-class": "Bolt\\Extension\\Gawain\\Clippy\\ClippyExtension",
         "bolt-icon": "icon-clippy.png",
         "bolt-screenshots": [
-            "screenshot-bonzi.png",
-            "screenshot-clippy.png",
-            "screenshot-f1.png",
-            "screenshot-genie.png",
-            "screenshot-genius.png",
-            "screenshot-links.png",
-            "screenshot-peedy.png",
-            "screenshot-rocky.png",
-            "screenshot-rover.png"
+            "screenshots/bonzi.png",
+            "screenshots/clippy.png",
+            "screenshots/f1.png",
+            "screenshots/genie.png",
+            "screenshots/genius.png",
+            "screenshots/links.png",
+            "screenshots/peedy.png",
+            "screenshots/rocky.png",
+            "screenshots/rover.png"
         ],
         "branch-alias": {
             "dev-master": "3.0.x-dev"
