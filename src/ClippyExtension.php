@@ -22,9 +22,9 @@ class ClippyExtension extends SimpleExtension
     protected function registerAssets()
     {
         return [
-            (new Stylesheet('clippy.js/clippy.css'))->setLate(false)->setZone(Zone::BACKEND),
-            (new JavaScript('clippy.js/clippy.min.js'))->setLate(true)->setZone(Zone::BACKEND),
-            (new Snippet())->setCallback([$this, 'clippy'])->setLocation(Target::END_OF_BODY)->setZone(Zone::BACKEND),
+            Stylesheet::create('clippy.js/clippy.css')->setLate(false)->setZone(Zone::BACKEND),
+            JavaScript::create('clippy.js/clippy.min.js')->setLate(true)->setZone(Zone::BACKEND),
+            Snippet::create()->setCallback([$this, 'clippy'])->setLocation(Target::END_OF_BODY)->setZone(Zone::BACKEND),
         ];
     }
 
